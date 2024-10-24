@@ -28,11 +28,27 @@ import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.compose.material3.AlertDialog
+import androidx.compose.material3.TextButton
+import androidx.compose.runtime.*
 
 @Composable
-fun LoginScreen() {
+fun RegistrerScreenRoute(
+    onRegistrerClick: () -> Unit,
+) {
+    RegisterScreen(
+        onRegistrerClick = onRegistrerClick
+    )
+}
+
+@Composable
+private fun RegisterScreen(
+    onRegistrerClick: () -> Unit,
+) {
     var carnet by remember { mutableStateOf(TextFieldValue("")) }
     var password by remember { mutableStateOf(TextFieldValue("")) }
+    var confirmPassword by remember { mutableStateOf(TextFieldValue("")) }
+    var showDialog by remember { mutableStateOf(false) }
 
     Column(
         modifier = Modifier
@@ -41,8 +57,9 @@ fun LoginScreen() {
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
+
         Text(
-            text = "Iniciar Sesión",
+            text = "Registrarse",
             fontSize = 30.sp,
             fontWeight = FontWeight.Bold
         )
@@ -70,12 +87,23 @@ fun LoginScreen() {
             visualTransformation = PasswordVisualTransformation()
         )
 
+
+        TextField(
+            value = confirmPassword,
+            onValueChange = { confirmPassword = it },
+            label = { Text("Confirmar contraseña") },
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(vertical = 8.dp),
+            visualTransformation = PasswordVisualTransformation()
+        )
+
         Spacer(modifier = Modifier.height(8.dp))
 
 
         Text(
-            text = "¿Eres nuevo? Regístrate aquí!",
-            modifier = Modifier.clickable { /* Acción de registro */ },
+            text = "¿Por qué me tengo que registrar?",
+            modifier = Modifier.clickable { showDialog = true },
             color = Color.Blue,
             fontSize = 14.sp,
             textDecoration = TextDecoration.Underline
@@ -83,21 +111,38 @@ fun LoginScreen() {
 
         Spacer(modifier = Modifier.height(16.dp))
 
+
         Button(
-            onClick = { /* Acción de iniciar sesión */ },
+            onClick = onRegistrerClick,
             colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF4CAF50)),
             modifier = Modifier
                 .fillMaxWidth()
                 .height(50.dp),
             shape = RoundedCornerShape(50)
         ) {
-            Text(text = "Iniciar sesión", color = Color.White, fontSize = 16.sp)
+            Text(text = "Registrarse", color = Color.White, fontSize = 16.sp)
         }
+    }
+
+    
+    if (showDialog) {
+        AlertDialog(
+            onDismissRequest = { showDialog = false },
+            title = { Text(text = "¿Por qué me tengo que registrar?") },
+            text = { Text("El registro es únicamente para llevar la contabilización de los votos de cada persona. Tus datos no se podrán ver al momento de realizar alguna calificación.") },
+            confirmButton = {
+                TextButton(onClick = { showDialog = false }) {
+                    Text(text = "Aceptar", color = Color.Blue)
+                }
+            }
+        )
     }
 }
 
-@Preview(showBackground = true)
-@Composable
-fun DefaultPreview() {
-    LoginScreen()
-}
+
+
+//@Preview(showBackground = true)
+//@Composable
+//fun RegisterScreenPreview() {
+//    RegisterScreen()
+//}
