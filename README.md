@@ -17,7 +17,7 @@ Este servicio se utilizaría para manejar la autenticación de usuarios. Los est
 
 - Base de datos local (Room): Para una base de datos local, se puede almacenar toda la información de catedráticos y sus calificaciones en Room. Se sincronizaría solo cuando haya conexión a internet o cuando el usuario lo requiera.
 
-- ### Librerías
+### Librerías
 - Firebase Authentication:  Es una herramienta de autenticación de Google que permite integrar múltiples métodos de inicio de sesión en aplicaciones móviles, como correo electrónico, Google y Facebook. En la app, esta librería permitirá que los estudiantes se autentiquen antes de acceder a funciones como la calificación de catedráticos y el guardado de preferencias en su perfil.
 
 - Room Database: Room es una librería de persistencia de datos local que facilita el manejo de bases de datos en Android, proporcionando una capa de abstracción sobre SQLite. En la app, Room será utilizado para almacenar la información de catedráticos y sus calificaciones localmente, permitiendo que los datos estén disponibles offline y se sincronicen con Firebase Firestore cuando el dispositivo tenga conexión a internet.
