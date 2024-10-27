@@ -34,7 +34,6 @@ fun LoginScreenRoute(
     onLoginClick: (Int) -> Unit,
     oRegistrer: () -> Unit
 ) {
-
     LoginScreen(
         onLoginClick = onLoginClick,
         oRegistrer = oRegistrer
@@ -64,7 +63,6 @@ private fun LoginScreen(
 
         Spacer(modifier = Modifier.height(20.dp))
 
-
         TextField(
             value = carnet,
             onValueChange = { carnet = it },
@@ -73,7 +71,6 @@ private fun LoginScreen(
                 .fillMaxWidth()
                 .padding(vertical = 8.dp)
         )
-
 
         TextField(
             value = password,
@@ -87,7 +84,6 @@ private fun LoginScreen(
 
         Spacer(modifier = Modifier.height(8.dp))
 
-
         Text(
             text = "¿Eres nuevo? Regístrate aquí!",
             modifier = Modifier.clickable { oRegistrer() },
@@ -99,7 +95,9 @@ private fun LoginScreen(
         Spacer(modifier = Modifier.height(16.dp))
 
         Button(
-            onClick = {onLoginClick},
+            onClick = {
+                carnet.text.toIntOrNull()?.let { onLoginClick(it) }
+            },
             colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF4CAF50)),
             modifier = Modifier
                 .fillMaxWidth()
@@ -110,6 +108,8 @@ private fun LoginScreen(
         }
     }
 }
+
+
 
 //@Preview(showBackground = true)
 //@Composable

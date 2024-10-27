@@ -3,9 +3,13 @@ package com.example.proyecto.Presentation.Navigation
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavOptions
+import androidx.navigation.navOptions
 import androidx.navigation.navigation
 import com.example.proyecto.Presentation.Login.LoginScreenDestination
 import com.example.proyecto.Presentation.Login.loginScreen
+import com.example.proyecto.Presentation.Menu.CatedraticoScreenDestination
+import com.example.proyecto.Presentation.Menu.catedraticoScreen
+import com.example.proyecto.Presentation.Menu.navigateToCatedraticoScreen
 import com.example.proyecto.Presentation.Registrer.RegistrerScreenDestination
 import com.example.proyecto.Presentation.Registrer.registrerScreen
 import kotlinx.serialization.Serializable
@@ -24,7 +28,14 @@ fun NavGraphBuilder.logRegGraph(
         startDestination = LoginScreenDestination
     ) {
         loginScreen(
-            onLoginClick = { /* Acción de prueba */ },
+            onLoginClick = { carnet ->
+                navController.navigateToCatedraticoScreen(
+                    estudianteId = carnet,
+                    navOptions = navOptions {
+                        popUpTo(LoginScreenDestination) { inclusive = true }
+                    }
+                )
+            },
             oRegistrer =  {
                 navController.navigate(RegistrerScreenDestination)
             }
@@ -37,5 +48,7 @@ fun NavGraphBuilder.logRegGraph(
                 }
             }
         )
+
+        catedraticoScreen()
     }
 }

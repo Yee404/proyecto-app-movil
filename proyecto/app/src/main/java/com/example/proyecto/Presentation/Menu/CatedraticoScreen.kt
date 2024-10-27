@@ -4,7 +4,6 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.material3.HorizontalDivider
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -13,28 +12,18 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
-import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBack
-import androidx.compose.material.icons.filled.Check
-import androidx.compose.material.icons.filled.FilterList
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.material.icons.filled.StarBorder
 import androidx.compose.material.icons.filled.StarHalf
-import androidx.compose.material3.Button
-import androidx.compose.material3.Checkbox
-import androidx.compose.material3.DropdownMenu
-import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FilterChip
 import androidx.compose.material3.FilterChipDefaults
 import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -56,23 +45,39 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
-import com.example.proyecto.Data.Catedratico
-import com.example.proyecto.Data.CatedraticosDb
+import com.example.proyecto.Data.Model.Catedratico
+import com.example.proyecto.Data.Model.Estudiante
+import com.example.proyecto.Data.Source.CalificacionDb
+import com.example.proyecto.Data.Source.CatedraticosDb
+import com.example.proyecto.Data.Source.EstudiantesDb
 import com.example.proyecto.R
 
-@Preview
+
+
 @Composable
-fun PreviewCatedraticosScreen() {
-    CatedraticosScreen()
+fun CatedraticoRoute(
+    estudianteId: Int,
+) {
+    val estudianteDb = EstudiantesDb()
+    val estudiante = estudianteDb.getEstudianteById(estudianteId)
+
+    CatedraticosScreen(
+        estudiante = estudiante
+    )
 }
+
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun CatedraticosScreen() {
+private fun CatedraticosScreen(
+    estudiante: Estudiante
+
+) {
     var filtroSeleccionado by remember { mutableStateOf("Todos") }
     var searchQuery by remember { mutableStateOf("") } // Estado para la búsqueda
     val catedraticosDb = CatedraticosDb()
+    val calificaionesDb = CalificacionDb()
+
 
     Scaffold(
         topBar = {
@@ -132,7 +137,7 @@ fun CatedraticosScreen() {
                 }
 
                 // Lista de catedráticos con filtro aplicado y búsqueda
-                CatedraticosList(catedraticosDb, filtroSeleccionado, searchQuery)
+                CatedraticosList(catedraticosDb, filtroSeleccionado, searchQuery, estudiante.carnet, calificaionesDb)
             }
         }
     )
@@ -168,7 +173,9 @@ fun FiltroBar(filtroSeleccionado: String, onFiltroChange: (String) -> Unit) {
 fun CatedraticosList(
     catedraticosDb: CatedraticosDb,
     filtroSeleccionado: String,
-    searchQuery: String
+    searchQuery: String,
+    estudianteId: Int,
+    calificacionDb: CalificacionDb
 ) {
     // Obtén la lista de catedráticos desde la base de datos
     val catedraticos = catedraticosDb.obtenerListaCatedraticos()
@@ -184,7 +191,7 @@ fun CatedraticosList(
 
     // Aplica el filtro seleccionado
     val catedraticosFiltrados = when (filtroSeleccionado) {
-        "Calificación" -> catedraticosFiltradosPorBusqueda.sortedByDescending { it.qualification }
+        "Calificación" -> catedraticosFiltradosPorBusqueda.sortedByDescending { it.qualificationProm }
         "Curso" -> catedraticosFiltradosPorBusqueda.sortedBy { it.curses }
         "Alfabéticamente" -> catedraticosFiltradosPorBusqueda.sortedBy { it.name }
         else -> catedraticosFiltradosPorBusqueda
@@ -192,26 +199,31 @@ fun CatedraticosList(
 
     LazyColumn {
         items(catedraticosFiltrados) { catedratico ->
-            CatedraticoItem(catedratico)
+            val yaCalificado = calificacionDb.yaCalificadoPorEstudiante(estudianteId, catedratico.id)
+            CatedraticoItem(catedratico, yaCalificado)
         }
     }
 }
 
 @Composable
-fun CatedraticoItem(catedratico: Catedratico) {
+fun CatedraticoItem(
+    catedratico: Catedratico,
+    yaCalificado: Boolean, // Id del estudiante que calificará
+) {
+
     Row(
         modifier = Modifier
             .fillMaxWidth()
             .padding(16.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
-        // Imagen del catedrático
+        // Imagen del catedrático con borde dinámico
         Image(
             painter = painterResource(id = R.drawable.ic_launcher_foreground), // Reemplazar con imagen adecuada
             contentDescription = "Imagen del Catedrático",
             modifier = Modifier
                 .size(64.dp)
-                .border(2.dp, Color.Red)
+                .border(2.dp, if (yaCalificado) Color(0xFF4CAF50) else Color.Red) // Borde verde si ya fue calificado
                 .padding(4.dp),
             contentScale = ContentScale.Crop
         )
@@ -235,7 +247,7 @@ fun CatedraticoItem(catedratico: Catedratico) {
         }
 
         // Calificación en estrellas (rating)
-        RatingBar(catedratico.qualification)
+        RatingBar(catedratico.qualificationProm)
 
         Spacer(modifier = Modifier.width(16.dp))
     }
@@ -243,6 +255,7 @@ fun CatedraticoItem(catedratico: Catedratico) {
         modifier = Modifier.fillMaxWidth()
     )
 }
+
 
 @Composable
 fun RatingBar(rating: Double) {
@@ -261,4 +274,11 @@ fun RatingBar(rating: Double) {
             Icon(Icons.Default.StarBorder, contentDescription = "Estrella vacía", tint = Color(0xFF4CAF50))
         }
     }
+}
+
+
+@Preview
+@Composable
+fun PreviewCatedraticosScreen() {
+    CatedraticosScreen(Estudiante(carnet =20210001, password = "hola"))
 }
