@@ -9,26 +9,26 @@ class CatedraticosDb {
             name = "Dr. Juan Pérez",
             curses = "Cálculo, Álgebra Lineal, Física I",
             biographic = "El Dr. Juan Pérez tiene más de 20 años de experiencia enseñando matemáticas y física en diferentes universidades del país.",
-            qualificationProm = 4.5,
+            qualificationProm = 4.0,
             image = "https://randomuser.me/api/portraits/men/1.jpg",
             qualification1 = 4.0,
-            qualification2 = 4.5,
-            qualification3 = 4.2,
-            qualification4 = 4.8,
-            qualification5 = 4.3
+            qualification2 = 4.0,
+            qualification3 = 3.5,
+            qualification4 = 5.0,
+            qualification5 = 4.0
         ),
         Catedratico(
             id = 2,
             name = "Lic. María López",
             curses = "Pensamiento Crítico, Teoría del Conocimiento",
             biographic = "La Lic. María López se especializa en el desarrollo del pensamiento crítico y la filosofía contemporánea.",
-            qualificationProm = 4.7,
+            qualificationProm = 4.5,
             image = "https://randomuser.me/api/portraits/women/2.jpg",
-            qualification1 = 4.6,
-            qualification2 = 4.8,
-            qualification3 = 4.7,
-            qualification4 = 4.5,
-            qualification5 = 4.9
+            qualification1 = 4.0,
+            qualification2 = 5.0,
+            qualification3 = 4.0,
+            qualification4 = 3.0,
+            qualification5 = 2.0
         ),
         Catedratico(
             id = 3,
@@ -38,10 +38,10 @@ class CatedraticosDb {
             qualificationProm = 3.2,
             image = "https://randomuser.me/api/portraits/men/3.jpg",
             qualification1 = 3.0,
-            qualification2 = 3.4,
-            qualification3 = 3.5,
-            qualification4 = 3.1,
-            qualification5 = 3.2
+            qualification2 = 3.0,
+            qualification3 = 3.0,
+            qualification4 = 3.0,
+            qualification5 = 3.0
         ),
         Catedratico(
             id = 4,
@@ -50,11 +50,11 @@ class CatedraticosDb {
             biographic = "La Dra. Sofía Martínez es investigadora en química orgánica y ha publicado numerosos artículos en revistas internacionales.",
             qualificationProm = 1.8,
             image = "https://randomuser.me/api/portraits/women/4.jpg",
-            qualification1 = 1.5,
+            qualification1 = 1.0,
             qualification2 = 2.0,
-            qualification3 = 1.8,
-            qualification4 = 1.7,
-            qualification5 = 1.9
+            qualification3 = 1.0,
+            qualification4 = 1.0,
+            qualification5 = 1.0
         ),
         Catedratico(
             id = 5,
@@ -63,11 +63,11 @@ class CatedraticosDb {
             biographic = "El Mtro. José Ramírez ha dedicado su carrera a la enseñanza de la historia y la preservación del patrimonio cultural.",
             qualificationProm = 4.3,
             image = "https://randomuser.me/api/portraits/men/5.jpg",
-            qualification1 = 4.2,
-            qualification2 = 4.4,
-            qualification3 = 4.5,
-            qualification4 = 4.3,
-            qualification5 = 4.1
+            qualification1 = 4.0,
+            qualification2 = 4.0,
+            qualification3 = 4.0,
+            qualification4 = 4.0,
+            qualification5 = 3.0
         ),
         Catedratico(
             id = 6,
@@ -76,11 +76,11 @@ class CatedraticosDb {
             biographic = "La Lic. Ana González es especialista en derecho internacional y ha trabajado en varias organizaciones humanitarias.",
             qualificationProm = 4.6,
             image = "https://randomuser.me/api/portraits/women/6.jpg",
-            qualification1 = 4.5,
-            qualification2 = 4.7,
-            qualification3 = 4.6,
-            qualification4 = 4.8,
-            qualification5 = 4.4
+            qualification1 = 4.0,
+            qualification2 = 4.0,
+            qualification3 = 4.0,
+            qualification4 = 4.0,
+            qualification5 = 4.0
         ),
         Catedratico(
             id = 7,
@@ -89,11 +89,11 @@ class CatedraticosDb {
             biographic = "El Dr. Fernando Castro es un economista reconocido que ha colaborado con organismos internacionales en políticas públicas.",
             qualificationProm = 2.4,
             image = "https://randomuser.me/api/portraits/men/7.jpg",
-            qualification1 = 2.3,
-            qualification2 = 2.6,
-            qualification3 = 2.4,
-            qualification4 = 2.2,
-            qualification5 = 2.5
+            qualification1 = 2.0,
+            qualification2 = 2.0,
+            qualification3 = 2.0,
+            qualification4 = 2.0,
+            qualification5 = 2.0
         ),
         Catedratico(
             id = 8,
@@ -102,10 +102,10 @@ class CatedraticosDb {
             biographic = "La Ing. Laura Hernández es una experta en desarrollo de software y ha trabajado en varias empresas tecnológicas líderes.",
             qualificationProm = 4.9,
             image = "https://randomuser.me/api/portraits/women/8.jpg",
-            qualification1 = 4.8,
+            qualification1 = 4.0,
             qualification2 = 5.0,
-            qualification3 = 4.9,
-            qualification4 = 4.7,
+            qualification3 = 4.0,
+            qualification4 = 4.0,
             qualification5 = 5.0
         ),
         Catedratico(
@@ -116,9 +116,9 @@ class CatedraticosDb {
             qualificationProm = 4.1,
             image = "https://randomuser.me/api/portraits/men/9.jpg",
             qualification1 = 4.0,
-            qualification2 = 4.3,
-            qualification3 = 4.1,
-            qualification4 = 4.2,
+            qualification2 = 3.0,
+            qualification3 = 4.0,
+            qualification4 = 4.0,
             qualification5 = 4.0
         ),
         Catedratico(
@@ -128,11 +128,11 @@ class CatedraticosDb {
             biographic = "La Mtra. Gabriela Díaz ha asesorado a numerosos estudiantes en la realización de investigaciones científicas en diversas áreas.",
             qualificationProm = 3.6,
             image = "https://randomuser.me/api/portraits/women/10.jpg",
-            qualification1 = 3.5,
-            qualification2 = 3.7,
-            qualification3 = 3.6,
-            qualification4 = 3.8,
-            qualification5 = 3.4
+            qualification1 = 3.0,
+            qualification2 = 3.0,
+            qualification3 = 3.0,
+            qualification4 = 4.0,
+            qualification5 = 3.0
         ),
         Catedratico(
             id = 11,
@@ -141,11 +141,11 @@ class CatedraticosDb {
             biographic = "El Lic. Ricardo Molina tiene un profundo conocimiento en derecho penal y criminología, trabajando como asesor en casos legales.",
             qualificationProm = 4.5,
             image = "https://randomuser.me/api/portraits/men/11.jpg",
-            qualification1 = 4.4,
-            qualification2 = 4.6,
-            qualification3 = 4.5,
-            qualification4 = 4.7,
-            qualification5 = 4.3
+            qualification1 = 4.0,
+            qualification2 = 4.0,
+            qualification3 = 4.0,
+            qualification4 = 4.0,
+            qualification5 = 4.0
         ),
         Catedratico(
             id = 12,
@@ -155,10 +155,10 @@ class CatedraticosDb {
             qualificationProm = 3.9,
             image = "https://randomuser.me/api/portraits/women/12.jpg",
             qualification1 = 4.0,
-            qualification2 = 3.8,
-            qualification3 = 4.1,
-            qualification4 = 3.7,
-            qualification5 = 3.9
+            qualification2 = 3.0,
+            qualification3 = 4.0,
+            qualification4 = 3.0,
+            qualification5 = 3.0
         ),
         Catedratico(
             id = 13,
@@ -167,11 +167,11 @@ class CatedraticosDb {
             biographic = "El Ing. Roberto Fernández es un especialista en inteligencia artificial, con años de experiencia en el campo de la investigación tecnológica.",
             qualificationProm = 4.7,
             image = "https://randomuser.me/api/portraits/men/13.jpg",
-            qualification1 = 4.6,
-            qualification2 = 4.8,
-            qualification3 = 4.7,
-            qualification4 = 4.9,
-            qualification5 = 4.5
+            qualification1 = 4.0,
+            qualification2 = 4.0,
+            qualification3 = 4.0,
+            qualification4 = 4.0,
+            qualification5 = 4.0
         ),
         Catedratico(
             id = 14,
@@ -180,11 +180,11 @@ class CatedraticosDb {
             biographic = "La Mtra. Teresa Morales ha trabajado como psicóloga clínica y docente, enfocada en el desarrollo infantil y juvenil.",
             qualificationProm = 4.4,
             image = "https://randomuser.me/api/portraits/women/14.jpg",
-            qualification1 = 4.3,
-            qualification2 = 4.2,
-            qualification3 = 4.5,
-            qualification4 = 4.1,
-            qualification5 = 4.4
+            qualification1 = 4.0,
+            qualification2 = 4.0,
+            qualification3 = 4.0,
+            qualification4 = 4.0,
+            qualification5 = 4.0
         ),
         Catedratico(
             id = 15,
@@ -194,9 +194,9 @@ class CatedraticosDb {
             qualificationProm = 5.0,
             image = "https://randomuser.me/api/portraits/men/15.jpg",
             qualification1 = 5.0,
-            qualification2 = 4.9,
+            qualification2 = 4.0,
             qualification3 = 5.0,
-            qualification4 = 4.8,
+            qualification4 = 4.0,
             qualification5 = 5.0
         ),
         Catedratico(
@@ -206,11 +206,11 @@ class CatedraticosDb {
             biographic = "La Dra. Laura Ruiz ha liderado varios proyectos de investigación en el ámbito de la ingeniería mecánica y el diseño avanzado.",
             qualificationProm = 1.6,
             image = "https://randomuser.me/api/portraits/women/16.jpg",
-            qualification1 = 1.8,
-            qualification2 = 1.5,
-            qualification3 = 1.7,
-            qualification4 = 1.4,
-            qualification5 = 1.6
+            qualification1 = 1.0,
+            qualification2 = 1.0,
+            qualification3 = 1.0,
+            qualification4 = 1.0,
+            qualification5 = 1.0
         ),
         Catedratico(
             id = 17,
@@ -219,11 +219,11 @@ class CatedraticosDb {
             biographic = "El Ing. Andrés Castillo ha trabajado en la industria de semiconductores durante más de 15 años, especializado en circuitos digitales.",
             qualificationProm = 4.2,
             image = "https://randomuser.me/api/portraits/men/17.jpg",
-            qualification1 = 4.1,
-            qualification2 = 4.3,
+            qualification1 = 4.0,
+            qualification2 = 4.0,
             qualification3 = 4.0,
-            qualification4 = 4.2,
-            qualification5 = 4.4
+            qualification4 = 4.0,
+            qualification5 = 4.0
         ),
         Catedratico(
             id = 18,
@@ -232,11 +232,11 @@ class CatedraticosDb {
             biographic = "La Lic. Verónica Salazar es una experta en derecho ambiental y ha trabajado en diversas organizaciones no gubernamentales.",
             qualificationProm = 4.7,
             image = "https://randomuser.me/api/portraits/women/18.jpg",
-            qualification1 = 4.6,
-            qualification2 = 4.5,
-            qualification3 = 4.8,
-            qualification4 = 4.9,
-            qualification5 = 4.7
+            qualification1 = 4.0,
+            qualification2 = 4.0,
+            qualification3 = 4.0,
+            qualification4 = 4.0,
+            qualification5 = 4.0
         ),
         Catedratico(
             id = 19,
@@ -245,11 +245,11 @@ class CatedraticosDb {
             biographic = "El Mtro. Raúl Sánchez tiene una gran pasión por el arte y la literatura, habiendo escrito varios libros sobre historia del arte.",
             qualificationProm = 4.2,
             image = "https://randomuser.me/api/portraits/men/19.jpg",
-            qualification1 = 4.1,
-            qualification2 = 4.3,
-            qualification3 = 4.2,
+            qualification1 = 4.0,
+            qualification2 = 4.0,
+            qualification3 = 4.0,
             qualification4 = 4.0,
-            qualification5 = 4.3
+            qualification5 = 4.0
         ),
         Catedratico(
             id = 20,
@@ -258,11 +258,11 @@ class CatedraticosDb {
             biographic = "La Dra. Silvia Méndez ha sido galardonada por sus investigaciones en el área de microbiología y biotecnología aplicada.",
             qualificationProm = 4.8,
             image = "https://randomuser.me/api/portraits/women/20.jpg",
-            qualification1 = 4.7,
-            qualification2 = 4.9,
-            qualification3 = 4.8,
+            qualification1 = 4.0,
+            qualification2 = 4.0,
+            qualification3 = 4.0,
             qualification4 = 5.0,
-            qualification5 = 4.6
+            qualification5 = 4.0
         ),
         Catedratico(
             id = 21,
@@ -271,11 +271,11 @@ class CatedraticosDb {
             biographic = "El Dr. Ernesto Rodríguez es un físico especializado en investigación nuclear, con más de 25 años de experiencia en docencia.",
             qualificationProm = 3.7,
             image = "https://randomuser.me/api/portraits/men/21.jpg",
-            qualification1 = 3.8,
-            qualification2 = 3.6,
-            qualification3 = 3.7,
-            qualification4 = 3.5,
-            qualification5 = 3.9
+            qualification1 = 3.0,
+            qualification2 = 3.0,
+            qualification3 = 3.0,
+            qualification4 = 3.0,
+            qualification5 = 3.0
         ),
         Catedratico(
             id = 22,
@@ -284,11 +284,11 @@ class CatedraticosDb {
             biographic = "La Lic. Carmen Fernández es una antropóloga con un enfoque en el estudio de culturas indígenas y etnografía aplicada.",
             qualificationProm = 0.0,
             image = "https://randomuser.me/api/portraits/women/22.jpg",
-            qualification1 = 4.3,
-            qualification2 = 4.5,
-            qualification3 = 4.4,
-            qualification4 = 4.2,
-            qualification5 = 4.6
+            qualification1 = 4.0,
+            qualification2 = 4.0,
+            qualification3 = 4.0,
+            qualification4 = 4.0,
+            qualification5 = 4.0
         ),
         Catedratico(
             id = 23,
@@ -297,11 +297,11 @@ class CatedraticosDb {
             biographic = "El Ing. Eduardo García ha trabajado en proyectos de inteligencia artificial en varias empresas de tecnología de renombre mundial.",
             qualificationProm = 2.9,
             image = "https://randomuser.me/api/portraits/men/23.jpg",
-            qualification1 = 2.8,
-            qualification2 = 2.9,
+            qualification1 = 2.0,
+            qualification2 = 2.0,
             qualification3 = 3.0,
-            qualification4 = 2.7,
-            qualification5 = 3.1
+            qualification4 = 2.0,
+            qualification5 = 3.0
         ),
         Catedratico(
             id = 24,
@@ -310,11 +310,11 @@ class CatedraticosDb {
             biographic = "La Dra. Claudia López es una psicóloga clínica con un enfoque en neuropsicología, tratando casos de trauma y desarrollo cognitivo.",
             qualificationProm = 4.8,
             image = "https://randomuser.me/api/portraits/women/24.jpg",
-            qualification1 = 4.9,
-            qualification2 = 4.7,
-            qualification3 = 4.8,
-            qualification4 = 4.9,
-            qualification5 = 4.6
+            qualification1 = 4.0,
+            qualification2 = 4.0,
+            qualification3 = 4.0,
+            qualification4 = 4.0,
+            qualification5 = 4.0
         ),
         Catedratico(
             id = 25,
@@ -323,11 +323,11 @@ class CatedraticosDb {
             biographic = "El Mtro. Luis Martínez es un apasionado de la historia contemporánea y su influencia en las sociedades modernas.",
             qualificationProm = 4.6,
             image = "https://randomuser.me/api/portraits/men/25.jpg",
-            qualification1 = 4.5,
-            qualification2 = 4.7,
-            qualification3 = 4.8,
-            qualification4 = 4.4,
-            qualification5 = 4.6
+            qualification1 = 4.0,
+            qualification2 = 4.0,
+            qualification3 = 4.0,
+            qualification4 = 4.0,
+            qualification5 = 4.0
         ),
         Catedratico(
             id = 26,
@@ -336,11 +336,11 @@ class CatedraticosDb {
             biographic = "La Ing. Natalia Ramírez se especializa en el análisis de grandes volúmenes de datos, con experiencia en ciencia de datos aplicada.",
             qualificationProm = 4.0,
             image = "https://randomuser.me/api/portraits/women/26.jpg",
-            qualification1 = 3.9,
+            qualification1 = 3.0,
             qualification2 = 4.0,
-            qualification3 = 4.1,
-            qualification4 = 4.2,
-            qualification5 = 3.8
+            qualification3 = 4.0,
+            qualification4 = 4.0,
+            qualification5 = 3.0
         ),
         Catedratico(
             id = 27,
@@ -349,11 +349,11 @@ class CatedraticosDb {
             biographic = "El Dr. Francisco Pineda es un economista con un enfoque en el desarrollo y las finanzas internacionales, colaborando con gobiernos y ONGs.",
             qualificationProm = 4.5,
             image = "https://randomuser.me/api/portraits/men/27.jpg",
-            qualification1 = 4.4,
-            qualification2 = 4.6,
-            qualification3 = 4.7,
-            qualification4 = 4.3,
-            qualification5 = 4.5
+            qualification1 = 4.0,
+            qualification2 = 4.0,
+            qualification3 = 4.0,
+            qualification4 = 4.0,
+            qualification5 = 4.0
         ),
         Catedratico(
             id = 28,
@@ -362,11 +362,11 @@ class CatedraticosDb {
             biographic = "La Lic. Sandra Gómez es especialista en derecho laboral y derechos humanos, asesorando a diferentes organismos internacionales.",
             qualificationProm = 4.69,
             image = "https://randomuser.me/api/portraits/women/28.jpg",
-            qualification1 = 4.6,
-            qualification2 = 4.7,
-            qualification3 = 4.8,
-            qualification4 = 4.9,
-            qualification5 = 4.6
+            qualification1 = 4.0,
+            qualification2 = 4.0,
+            qualification3 = 4.0,
+            qualification4 = 4.0,
+            qualification5 = 4.0
         ),
         Catedratico(
             id = 29,
@@ -375,11 +375,11 @@ class CatedraticosDb {
             biographic = "El Ing. Alejandro Solís ha liderado proyectos en robótica y control de sistemas avanzados en la industria automotriz.",
             qualificationProm = 4.6,
             image = "https://randomuser.me/api/portraits/men/29.jpg",
-            qualification1 = 4.5,
-            qualification2 = 4.7,
-            qualification3 = 4.8,
-            qualification4 = 4.6,
-            qualification5 = 4.4
+            qualification1 = 4.0,
+            qualification2 = 4.0,
+            qualification3 = 4.0,
+            qualification4 = 4.0,
+            qualification5 = 4.0
         ),
         Catedratico(
             id = 30,
@@ -388,11 +388,11 @@ class CatedraticosDb {
             biographic = "La Dra. Andrea Torres ha sido reconocida por sus avances en biotecnología, desarrollando nuevas tecnologías en el ámbito biomédico.",
             qualificationProm = 1.7,
             image = "https://randomuser.me/api/portraits/women/30.jpg",
-            qualification1 = 1.5,
-            qualification2 = 1.8,
-            qualification3 = 1.6,
-            qualification4 = 1.9,
-            qualification5 = 1.4
+            qualification1 = 1.0,
+            qualification2 = 1.0,
+            qualification3 = 1.0,
+            qualification4 = 1.0,
+            qualification5 = 1.0
         )
 
 
