@@ -2,6 +2,7 @@ package com.example.proyecto.Presentation.Menu
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.foundation.layout.Column
@@ -57,12 +58,14 @@ import com.example.proyecto.R
 @Composable
 fun CatedraticoRoute(
     estudianteId: Int,
+    onCharClick: (Int) -> Unit
 ) {
     val estudianteDb = EstudiantesDb()
     val estudiante = estudianteDb.getEstudianteById(estudianteId)
 
     CatedraticosScreen(
-        estudiante = estudiante
+        estudiante = estudiante,
+        onCharClick = onCharClick
     )
 }
 
@@ -70,7 +73,8 @@ fun CatedraticoRoute(
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 private fun CatedraticosScreen(
-    estudiante: Estudiante
+    estudiante: Estudiante,
+    onCharClick: (Int) -> Unit
 
 ) {
     var filtroSeleccionado by remember { mutableStateOf("Todos") }
@@ -91,7 +95,6 @@ private fun CatedraticosScreen(
                             Text(
                                 "Buscar Catedrático",
                                 color = Color.Black,
-                          //      fontWeight = FontWeight.Bold  // Texto en negrita
                             )
                                       },
                         modifier = Modifier.fillMaxWidth(),
@@ -137,7 +140,7 @@ private fun CatedraticosScreen(
                 }
 
                 // Lista de catedráticos con filtro aplicado y búsqueda
-                CatedraticosList(catedraticosDb, filtroSeleccionado, searchQuery, estudiante.carnet, calificaionesDb)
+                CatedraticosList(catedraticosDb, filtroSeleccionado, searchQuery, estudiante.carnet, calificaionesDb, onCharClick = onCharClick)
             }
         }
     )
@@ -150,7 +153,7 @@ fun FiltroBar(filtroSeleccionado: String, onFiltroChange: (String) -> Unit) {
     LazyRow(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(start = 8.dp, end = 8.dp, bottom = 8.dp), // Ajustamos el padding
+            .padding(start = 8.dp, end = 8.dp, bottom = 8.dp),
         horizontalArrangement = Arrangement.spacedBy(8.dp)
     ) {
         items(filtros) { filtro ->
@@ -160,9 +163,9 @@ fun FiltroBar(filtroSeleccionado: String, onFiltroChange: (String) -> Unit) {
                 label = { Text(filtro) },
                 modifier = Modifier.padding(horizontal = 4.dp),
                 colors = FilterChipDefaults.filterChipColors(
-                    selectedContainerColor = Color(0xFFC8E6C9),    // Fondo verde cuando está seleccionado
-                    labelColor = Color.Black,                      // Color del texto cuando no está seleccionado
-                    selectedLabelColor = Color.Black               // Color del texto cuando está seleccionado
+                    selectedContainerColor = Color(0xFFC8E6C9),
+                    labelColor = Color.Black,
+                    selectedLabelColor = Color.Black
                 ),
             )
         }
@@ -175,7 +178,8 @@ fun CatedraticosList(
     filtroSeleccionado: String,
     searchQuery: String,
     estudianteId: Int,
-    calificacionDb: CalificacionDb
+    calificacionDb: CalificacionDb,
+    onCharClick: (Int) -> Unit
 ) {
     // Obtén la lista de catedráticos desde la base de datos
     val catedraticos = catedraticosDb.obtenerListaCatedraticos()
@@ -200,7 +204,7 @@ fun CatedraticosList(
     LazyColumn {
         items(catedraticosFiltrados) { catedratico ->
             val yaCalificado = calificacionDb.yaCalificadoPorEstudiante(estudianteId, catedratico.id)
-            CatedraticoItem(catedratico, yaCalificado)
+            CatedraticoItem(catedratico, yaCalificado, onCharClick = onCharClick)
         }
     }
 }
@@ -208,13 +212,15 @@ fun CatedraticosList(
 @Composable
 fun CatedraticoItem(
     catedratico: Catedratico,
-    yaCalificado: Boolean, // Id del estudiante que calificará
+    yaCalificado: Boolean,
+    onCharClick: (Int) -> Unit
 ) {
 
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(16.dp),
+            .padding(16.dp)
+            .clickable { onCharClick(catedratico.id) },
         verticalAlignment = Alignment.CenterVertically
     ) {
         // Imagen del catedrático con borde dinámico
@@ -280,5 +286,5 @@ fun RatingBar(rating: Double) {
 @Preview
 @Composable
 fun PreviewCatedraticosScreen() {
-    CatedraticosScreen(Estudiante(carnet =20210001, password = "hola"))
+    CatedraticosScreen(Estudiante(carnet =20210001, password = "hola"), onCharClick = { /* Acción de prueba */ })
 }

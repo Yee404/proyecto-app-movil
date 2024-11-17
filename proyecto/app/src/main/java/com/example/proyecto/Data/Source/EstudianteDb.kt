@@ -22,6 +22,10 @@ class EstudiantesDb {
     fun getEstudianteById(carnet: Int): Estudiante {
         return EstudiantesList.first { it.carnet == carnet }
     }
+    // Función para obtener la lista completa de catedráticos
+    fun obtenerListaEstudiantes(): List<Estudiante> {
+        return EstudiantesList
+    }
 
 }
 

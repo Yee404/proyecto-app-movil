@@ -22,11 +22,14 @@ fun NavController.navigateToCatedraticoScreen(
     )
 }
 
-fun NavGraphBuilder.catedraticoScreen() {
+fun NavGraphBuilder.catedraticoScreen(
+    onCharClick: (Int) -> Unit,
+) {
     composable<CatedraticoScreenDestination> { backStackEntry ->
         val destination: CatedraticoScreenDestination = backStackEntry.toRoute()
         CatedraticoRoute(
-            estudianteId = destination.estudianteId
+            estudianteId = destination.estudianteId,
+            onCharClick = onCharClick
         )
     }
 }

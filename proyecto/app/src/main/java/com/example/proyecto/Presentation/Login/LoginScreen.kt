@@ -28,25 +28,30 @@ import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.proyecto.Data.Source.EstudiantesDb
 
 @Composable
 fun LoginScreenRoute(
     onLoginClick: (Int) -> Unit,
     oRegistrer: () -> Unit
 ) {
+    val estudiantesDb = EstudiantesDb()
     LoginScreen(
         onLoginClick = onLoginClick,
-        oRegistrer = oRegistrer
+        oRegistrer = oRegistrer,
+        estudiantesDb = estudiantesDb
     )
 }
 
 @Composable
 private fun LoginScreen(
     onLoginClick: (Int) -> Unit,
-    oRegistrer: () -> Unit
+    oRegistrer: () -> Unit,
+    estudiantesDb: EstudiantesDb
 ) {
     var carnet by remember { mutableStateOf(TextFieldValue("")) }
     var password by remember { mutableStateOf(TextFieldValue("")) }
+    var error by remember { mutableStateOf(false) } // Estado para manejar el error
 
     Column(
         modifier = Modifier
@@ -84,6 +89,16 @@ private fun LoginScreen(
 
         Spacer(modifier = Modifier.height(8.dp))
 
+        // Mostrar mensaje de error si existe
+        if (error) {
+            Text(
+                text = "Error: Usuario y/o contraseña incorrectos.",
+                color = Color.Red,
+                fontSize = 14.sp
+            )
+            Spacer(modifier = Modifier.height(8.dp))
+        }
+
         Text(
             text = "¿Eres nuevo? Regístrate aquí!",
             modifier = Modifier.clickable { oRegistrer() },
@@ -96,7 +111,25 @@ private fun LoginScreen(
 
         Button(
             onClick = {
-                carnet.text.toIntOrNull()?.let { onLoginClick(it) }
+                val carnetInt = carnet.text.trim().toIntOrNull()
+                val passwordInput = password.text.trim()
+
+                if (carnetInt != null) {
+                    val estudiante = estudiantesDb.obtenerListaEstudiantes()
+                        .find { it.carnet == carnetInt && it.password == passwordInput }
+
+                    if (estudiante != null) {
+                        // Usuario y contraseña correctos
+                        error = false
+                        onLoginClick(carnetInt)
+                    } else {
+                        // Usuario o contraseña incorrectos
+                        error = true
+                    }
+                } else {
+                    // Usuario o contraseña incorrectos
+                    error = true
+                }
             },
             colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF4CAF50)),
             modifier = Modifier
@@ -111,8 +144,19 @@ private fun LoginScreen(
 
 
 
-//@Preview(showBackground = true)
-//@Composable
-//fun DefaultPreview() {
-//    LoginScreen(onLoginClick = { /* Acción de prueba */ })
-//}
+
+@Preview(showBackground = true, showSystemUi = true)
+@Composable
+fun LoginScreenPreview() {
+    val estudiantesDb = EstudiantesDb()
+
+    LoginScreen(
+        onLoginClick = { carnet ->
+            println("Inicio de sesión exitoso con el carnet: $carnet")
+        },
+        oRegistrer = {
+            println("Navegar a la pantalla de registro.")
+        },
+        estudiantesDb = estudiantesDb
+    )
+}
