@@ -1,7 +1,11 @@
 package com.example.proyecto.Data.Model
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
+@Entity(tableName = "calificaciones")
 data class Calificaciones(
-    val calificacionid: Int,
+    @PrimaryKey(autoGenerate = true) val calificacionid: Int = 0,
     val estudianteId: Int,
     val catedraticoId: Int,
     val qualification1: Double,

@@ -1,7 +1,11 @@
 package com.example.proyecto.Data.Model
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
+@Entity(tableName = "catedraticos")
 data class Catedratico(
-    val id: Int,
+    @PrimaryKey val id: Int,
     val name: String,
     val curses: String,
     val biographic: String,
@@ -11,6 +15,6 @@ data class Catedratico(
     val qualification2: Double,
     val qualification3: Double,
     val qualification4: Double,
-    val qualification5: Double,
+    val qualification5: Double
 
 )
