@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "570093755166",
+    "project_id": "rating-uvg",
+    "storage_bucket": "rating-uvg.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:570093755166:android:e39be31c62705a0339870f",
+        "android_client_info": {
+          "package_name": "com.example.proyecto"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAXaD8eHC4VfaPw7jaUPb5I6aBb_fS1vYg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,182 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "d0195bd6d71ab89802695dc5b54af22a",
+    "entities": [
+      {
+        "tableName": "catedraticos",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `name` TEXT NOT NULL, `curses` TEXT NOT NULL, `biographic` TEXT NOT NULL, `qualificationProm` REAL NOT NULL, `image` TEXT NOT NULL, `qualification1` REAL NOT NULL, `qualification2` REAL NOT NULL, `qualification3` REAL NOT NULL, `qualification4` REAL NOT NULL, `qualification5` REAL NOT NULL, PRIMARY KEY(`id`))",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "curses",
+            "columnName": "curses",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "biographic",
+            "columnName": "biographic",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "qualificationProm",
+            "columnName": "qualificationProm",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "image",
+            "columnName": "image",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "qualification1",
+            "columnName": "qualification1",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "qualification2",
+            "columnName": "qualification2",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "qualification3",
+            "columnName": "qualification3",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "qualification4",
+            "columnName": "qualification4",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "qualification5",
+            "columnName": "qualification5",
+            "affinity": "REAL",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "calificaciones",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`calificacionid` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `estudianteId` INTEGER NOT NULL, `catedraticoId` INTEGER NOT NULL, `qualification1` REAL NOT NULL, `qualification2` REAL NOT NULL, `qualification3` REAL NOT NULL, `qualification4` REAL NOT NULL, `qualification5` REAL NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "calificacionid",
+            "columnName": "calificacionid",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "estudianteId",
+            "columnName": "estudianteId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "catedraticoId",
+            "columnName": "catedraticoId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "qualification1",
+            "columnName": "qualification1",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "qualification2",
+            "columnName": "qualification2",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "qualification3",
+            "columnName": "qualification3",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "qualification4",
+            "columnName": "qualification4",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "qualification5",
+            "columnName": "qualification5",
+            "affinity": "REAL",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "calificacionid"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "estudiantes",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`carnet` INTEGER NOT NULL, `password` TEXT NOT NULL, PRIMARY KEY(`carnet`))",
+        "fields": [
+          {
+            "fieldPath": "carnet",
+            "columnName": "carnet",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "password",
+            "columnName": "password",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "carnet"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'd0195bd6d71ab89802695dc5b54af22a')"
+    ]
+  }
+}

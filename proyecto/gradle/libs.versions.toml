@@ -16,6 +16,8 @@ splashScreen = "1.0.1"
 room = "2.6.1"
 ktor = "2.3.12"
 coil = "3.0.0-rc01"
+googleGmsGoogleServices = "4.4.2"
+firebaseAuth = "23.1.0"
 
 
 [libraries]
@@ -48,11 +50,13 @@ ktor-client-logging = { group = "io.ktor", name="ktor-client-logging", version.r
 ktor-serialization-kotlinx-json = { group = "io.ktor", name="ktor-serialization-kotlinx-json", version.ref = "ktor" }
 coil-compose = { group = "io.coil-kt.coil3", name = "coil-compose", version.ref = "coil" }
 coil-network = { group = "io.coil-kt.coil3", name = "coil-network-okhttp", version.ref = "coil" }
+firebase-auth = { group = "com.google.firebase", name = "firebase-auth", version.ref = "firebaseAuth" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 jetbrains-kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+google-gms-google-services = { id = "com.google.gms.google-services", version.ref = "googleGmsGoogleServices" }
 
 [bundles]
 ktor = [
